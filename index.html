@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coffee Stamp Loyalty</title>
+    <title>Coffee Shop Stamp App</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -13,17 +13,22 @@
     <div class="page-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Coffee Shop Loyalty</p>
+          <p class="eyebrow">Coffee loyalty dashboard</p>
           <h1 id="shopNameDisplay">Brew & Bloom</h1>
         </div>
-        <button id="shopSettingsButton" class="ghost-button" type="button">
-          Edit shop settings
-        </button>
+
+        <div class="topbar-actions">
+          <label class="shop-switcher">
+            <span>Shop</span>
+            <select id="shopSelect"></select>
+          </label>
+          <button id="addShopButton" class="secondary-button small-button" type="button">+ Add shop</button>
+        </div>
       </header>
 
       <main class="layout">
-        <section class="card panel shop-panel" id="shopPanel">
-          <div class="panel-header">
+        <aside class="card panel shop-panel" id="shopPanel">
+          <div class="panel-header split-header">
             <h2>Shop settings</h2>
           </div>
 
@@ -42,13 +47,13 @@
             </label>
 
             <label>
-              Brand accent colour
+              Brand color
               <input id="accentColorInput" type="color" value="#7b4b2a" />
             </label>
 
-            <button type="submit" class="primary-button">Save settings</button>
+            <button type="submit" class="primary-button">Save shop</button>
           </form>
-        </section>
+        </aside>
 
         <section class="card panel customers-panel">
           <div class="panel-header split-header">
@@ -76,13 +81,13 @@
             <p class="customer-label">Customer</p>
             <h3 class="customer-name"></h3>
           </div>
-          <div class="status-pill free-status">Free coffee ready</div>
+          <div class="status-pill free-status">Collecting stamps</div>
         </div>
 
         <div class="stamp-progress-block">
           <div class="progress-meta">
             <span class="stamps-count">0 / 8</span>
-            <span class="free-count">0 free coffee earned</span>
+            <span class="free-count">0 free coffees earned</span>
           </div>
           <div class="progress-bar">
             <div class="progress-fill"></div>
