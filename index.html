@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee Stamp Loyalty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Coffee Shop Loyalty</p>
+          <h1 id="shopNameDisplay">Brew & Bloom</h1>
+        </div>
+        <button id="shopSettingsButton" class="ghost-button" type="button">
+          Edit shop settings
+        </button>
+      </header>
+
+      <main class="layout">
+        <section class="card panel shop-panel" id="shopPanel">
+          <div class="panel-header">
+            <h2>Shop settings</h2>
+          </div>
+
+          <form id="shopForm" class="stack-form">
+            <label>
+              Shop name
+              <input id="shopNameInput" type="text" maxlength="40" placeholder="Brew & Bloom" />
+            </label>
+
+            <label>
+              Free coffee threshold
+              <div class="input-with-suffix">
+                <input id="thresholdInput" type="number" min="2" max="30" value="8" />
+                <span>coffees</span>
+              </div>
+            </label>
+
+            <label>
+              Brand accent colour
+              <input id="accentColorInput" type="color" value="#7b4b2a" />
+            </label>
+
+            <button type="submit" class="primary-button">Save settings</button>
+          </form>
+        </section>
+
+        <section class="card panel customers-panel">
+          <div class="panel-header split-header">
+            <h2>Customers</h2>
+            <span id="customerCountBadge" class="count-badge">0</span>
+          </div>
+
+          <form id="customerForm" class="stack-form compact-form">
+            <label>
+              Customer name
+              <input id="customerNameInput" type="text" maxlength="40" placeholder="Jamie Smith" required />
+            </label>
+            <button type="submit" class="primary-button">Add customer</button>
+          </form>
+
+          <div id="customerList" class="customer-list" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="customerCardTemplate">
+      <article class="customer-card">
+        <div class="customer-card-header">
+          <div>
+            <p class="customer-label">Customer</p>
+            <h3 class="customer-name"></h3>
+          </div>
+          <div class="status-pill free-status">Free coffee ready</div>
+        </div>
+
+        <div class="stamp-progress-block">
+          <div class="progress-meta">
+            <span class="stamps-count">0 / 8</span>
+            <span class="free-count">0 free coffee earned</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="customer-actions">
+          <button type="button" class="primary-button small-button stamp-button">+ Add stamp</button>
+          <button type="button" class="secondary-button small-button remove-button">- Remove</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
